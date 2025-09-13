@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxMedia - Реклама</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#hero" class="logo logo-link">
+                    <img src="images/logo.png" alt="Max Media" class="logo-img">
+                    <span class="logo-text">Max Media</span>
+                </a>
+                <nav class="nav">
+                    <a href="#overview" class="nav-link" data-section="overview">Обзор</a>
+                    <a href="#community" class="nav-link" data-section="community">Комьюнити</a>
+                    <a href="#statistics" class="nav-link" data-section="statistics">Статистика</a>
+                    <a href="#contacts" class="nav-link" data-section="contacts">Контакты</a>
+                    <div class="nav-indicator"></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-image"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Наша аудитория - ваши закрытые KPI</h1>
+                <p class="hero-subtitle">Реклама на YouTube МОЖЕТ быть настолько эффективной</p>
+                <a href="#overview" class="cta-button">Подробнее о нас</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="overview">
+        <div class="container">
+            <div class="overview-content">
+                <!-- Левая аватарка с текстом -->
+                <div class="overview-left">
+                    <div class="channel-block">
+                        <a href="https://www.youtube.com/channel/UCh6hcm8NJigfOMRbshnViCA" target="_blank" class="avatar-link avatar-link-1">
+                            <div class="avatar avatar-1"></div>
+                        </a>
+                        <div class="channel-info">
+                            <h3 class="channel-title">Даня Кашин Нарезки [Max Media]</h3>
+                            <p class="channel-description">Развивающийся канал с новыми, активными зрителями, набравший 6,1 млн просмотров с нуля за 3 месяца</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Центральный блок -->
+                <div class="overview-center">
+                    <h2 class="section-title">Каналы с нарезками стримера DK</h2>
+                    <div class="features">
+                        <div class="feature-item">
+                            <h3 class="feature-title" onclick="toggleFeature(this)">
+                                Аудитория не выжжена рекламой
+                                <span class="toggle-icon">+</span>
+                            </h3>
+                            <div class="feature-content">
+                                <p>У стримера нет вообще никакой рекламы, поэтому ваш баннер будет единственным и самым заметным. Ваша реклама не будет восприниматься как шум, а внимание к ней будет максимальным</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title" onclick="toggleFeature(this)">
+                                Лояльные подписчики
+                                <span class="toggle-icon">+</span>
+                            </h3>
+                            <div class="feature-content">
+                                <p>Наши лояльные подписчики - ваши лояльные клиенты. Большое количество реакций в комментариях и хорошая конверсия переходов в другие соцсети показывают вовлеченность аудитории и готовность к взаимодействию</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="feature-title" onclick="toggleFeature(this)">
+                                Только органические охваты
+                                <span class="toggle-icon">+</span>
+                            </h3>
+                            <div class="feature-content">
+                                <p>Все наши зрители - живые люди. Ни копейки вашего бюджета не уйдет на ветер</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Правая аватарка с текстом -->
+                <div class="overview-right">
+                    <div class="channel-block">
+                        <a href="https://www.youtube.com/@sobranniy_penal" target="_blank" class="avatar-link avatar-link-2">
+                            <div class="avatar avatar-2"></div>
+                        </a>
+                        <div class="channel-info">
+                            <h3 class="channel-title">СОБРАННЫЙ ПЕНАЛ</h3>
+                            <p class="channel-description">Старейший канал со стабильно хорошими охватами и большим сообществом в 117 тыс подписчиков</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community">
+        <div class="container">
+            <div class="community-content">
+                <div class="community-left">
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="chart-bars">
+                                <div class="bar" style="height: 46%">
+                                    <span class="bar-label">25-34 года</span>
+                                    <span class="bar-value">46%</span>
+                                </div>
+                                <div class="bar" style="height: 40%">
+                                    <span class="bar-label">18-24 года</span>
+                                    <span class="bar-value">40%</span>
+                                </div>
+                                <div class="bar" style="height: 7.7%">
+                                    <span class="bar-label">35-44 года</span>
+                                    <span class="bar-value">7,7%</span>
+                                </div>
+                                <div class="bar" style="height: 1.1%">
+                                    <span class="bar-label">13-17 лет</span>
+                                    <span class="bar-value">1,1%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-right">
+                    <h2 class="section-title">Целевая аудитория</h2>
+                    <p class="community-note">Данные из YouTube аналитики, отличаются от реальных.</p>
+                    <div class="expandable-text">
+                        <h3 class="expandable-title" onclick="toggleExpandable(this)">
+                            Фактически Core-аудитория: подростки 16-18 лет.
+                            <span class="toggle-icon">+</span>
+                        </h3>
+                        <div class="expandable-content">
+                            <p class="community-text">
+                                Это подтверждается статистикой по времени активности зрителей. У нас пик активности приходится на время с 9 утра до 17 вечера, что по статистике означает доминацию подростковой аудитории. В то время как пик активности с 16 до 23-х часов является показателем среднего возраста аудитории 18 - 35 лет
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="geography-section">
+                <div class="geography-left">
+                    <h2 class="section-title">Географическое распределение</h2>
+                    <div class="expandable-text">
+                        <h3 class="expandable-title" onclick="toggleExpandable(this)">
+                            Методы подсчетов
+                            <span class="toggle-icon">+</span>
+                        </h3>
+                        <div class="expandable-content">
+                            <p>За основу взяты данные из YouTube аналитики, но из-за повсеместного использования методов ускорения YouTube (vpn) данные в ютуб аналитике значительно искажаются. Поскольку контент русскоязычный - большая часть аудитории проживает в странах снг. Для повышения репрезентативности данных к колонке "Россия" прибавлены колонки других стран (не относящихся к снг региону)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="geography-right">
+                    <div class="bar-chart">
+                        <div class="chart-bars">
+                            <div class="bar" style="height: 87.1%">
+                                <span class="bar-label">Россия</span>
+                                <span class="bar-value">87,1%</span>
+                            </div>
+                            <div class="bar" style="height: 4.8%">
+                                <span class="bar-label">Украина</span>
+                                <span class="bar-value">4,8%</span>
+                            </div>
+                            <div class="bar" style="height: 3.3%">
+                                <span class="bar-label">Беларусь</span>
+                                <span class="bar-value">3,3%</span>
+                            </div>
+                            <div class="bar" style="height: 2.8%">
+                                <span class="bar-label">Казахстан</span>
+                                <span class="bar-value">2,8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="statistics">
+        <div class="container">
+            <div class="statistics-header">
+                <h2 class="section-title">Статистика</h2>
+                <div class="statistics-toggles">
+                    <div class="source-toggle">
+                        <button class="toggle-btn active" data-source="together" data-index="0">Вместе</button>
+                        <button class="toggle-btn" data-source="penal" data-index="1">Собр-Пенал</button>
+                        <button class="toggle-btn" data-source="maxmedia" data-index="2">MaxMedia</button>
+                    </div>
+                    <div class="period-toggle">
+                        <button class="toggle-btn active" data-period="28" data-index="0">28 дней</button>
+                        <button class="toggle-btn" data-period="90" data-index="1">90 дней</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" 
+                         data-together-28="2,2 млн" data-together-90="7,1 млн"
+                         data-penal-28="1,5 млн" data-penal-90="4,8 млн"
+                         data-maxmedia-28="0,7 млн" data-maxmedia-90="2,3 млн">2,2 млн</div>
+                    <div class="stat-label">просмотры</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" 
+                         data-together-28="14мин26сек" data-together-90="14мин4сек"
+                         data-penal-28="18мин18сек" data-penal-90="17мин26сек"
+                         data-maxmedia-28="10мин34сек" data-maxmedia-90="10мин42сек">14мин26сек</div>
+                    <div class="stat-label">Продолжительность просмотра</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" 
+                         data-together-28="75" data-together-90="226"
+                         data-penal-28="33" data-penal-90="100"
+                         data-maxmedia-28="42" data-maxmedia-90="126">75</div>
+                    <div class="stat-label">среднее кол-во роликов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" 
+                         data-together-28="38 тыс" data-together-90="59 тыс"
+                         data-penal-28="21 тыс" data-penal-90="37 тыс"
+                         data-maxmedia-28="17 тыс" data-maxmedia-90="21 тыс">38 тыс</div>
+                    <div class="stat-label">Средние просмотры на ролик</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts">
+        <div class="contacts-bg-image"></div>
+        <div class="container">
+            <div class="contacts-content">
+                <h2 class="section-title">Давайте обсудим как мы можем привести вам клиентов!</h2>
+                <div class="contact-info">
+                    <a href="https://t.me/krjtr" class="contact-link" target="_blank" rel="noopener noreferrer">Телега</a>
+                    <a href="mailto:maxmediarus@gmail.com" class="contact-link" target="_blank" rel="noopener noreferrer">Почта</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="https://drive.google.com/drive/folders/1Wln7v0AjNpm5m3BRHaoGinVSUk6CG2NW?usp=drive_link" class="footer-link" target="_blank" rel="noopener noreferrer">Скриншоты статистики</a>
+                <span class="footer-text">Связь - Телеграм @krjtr</span>
+                <span class="footer-text">Данные актуальны на сентябрь 2025 года</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
