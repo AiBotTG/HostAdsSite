@@ -142,6 +142,25 @@ body {
     z-index: 1;
 }
 
+/* Responsive eye sizing */
+@media (max-width: 768px) {
+    .hero-bg-image {
+        width: 120%; /* Увеличиваем в 2 раза (было 60%) */
+        height: 160%; /* Увеличиваем в 2 раза (было 80%) */
+        max-height: calc(100vh - 200px); /* Ограничиваем высоту относительно экрана */
+        right: -60%; /* Сдвигаем вправо, чтобы скрыть 55% за правой границей */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-bg-image {
+        width: 140%; /* Увеличиваем в 2 раза (было 70%) */
+        height: 170%; /* Увеличиваем в 2 раза (было 85%) */
+        max-height: calc(100vh - 150px);
+        right: -70%; /* Сдвигаем вправо, чтобы скрыть 55% за правой границей */
+    }
+}
+
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
@@ -406,12 +425,15 @@ section {
 /* blend from community (#0a0a0a) into statistics (#111111) */
 
 
-.community-content {
+.community-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
-    margin-bottom: 4rem;
+}
+
+.community-block {
+    width: 100%;
 }
 
 .chart-container {
@@ -442,12 +464,6 @@ section {
     opacity: 0.95;
 }
 
-.geography-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-}
 
 .expandable-text {
     margin-top: 2rem;
@@ -554,19 +570,32 @@ section {
 /* blend from statistics (#111111) into contacts (#0a0a0a) */
 
 
-.statistics-header {
+.statistics-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3rem;
     gap: 2rem;
 }
 
+.statistics-title {
+    order: 1;
+    margin-bottom: 0;
+}
+
 .statistics-toggles {
+    order: 2;
     display: flex;
     gap: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+.stats-grid {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
 }
 
 .source-toggle,
@@ -625,6 +654,10 @@ section {
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 180px;
 }
 
 .stat-card:hover {
@@ -639,13 +672,17 @@ section {
     margin-bottom: 0.5rem;
     transition: all 0.3s ease;
     text-align: center;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 .stat-label {
     font-size: 1.1rem;
     color: #cbd5e1;
     font-weight: 500;
+    text-align: center;
 }
 
 /* Contacts Section */
@@ -668,6 +705,25 @@ section {
     background-repeat: no-repeat;
     opacity: 0.4;
     z-index: 1;
+}
+
+/* Responsive phone sizing */
+@media (max-width: 768px) {
+    .contacts-bg-image {
+        width: 100%; /* Увеличиваем размер картинки */
+        height: 140%; /* Увеличиваем высоту */
+        max-height: calc(100vh - 200px);
+        left: -35%; /* Сдвигаем влево, чтобы показать 65% правой стороны */
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-bg-image {
+        width: 120%; /* Увеличиваем размер картинки */
+        height: 150%; /* Увеличиваем высоту */
+        max-height: calc(100vh - 150px);
+        left: -40%; /* Сдвигаем влево, чтобы показать 65% правой стороны */
+    }
 }
 
 .contacts-content {
@@ -750,6 +806,22 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 20px; /* Привязываем к левой границе экрана */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+    
+    .header-content {
+        justify-content: flex-end; /* Меню прижимаем к правому краю */
+    }
+    
     .nav {
         gap: 1rem;
     }
@@ -784,14 +856,26 @@ section {
         order: 3;
     }
     
-    .community-content,
-    .geography-section {
+    .community-wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    .community-content {
-        margin-bottom: 2rem;
+    /* Изменяем порядок элементов в комьюнити для мобильных */
+    .community-age-chart {
+        order: 1; /* График возрастов первым */
+    }
+    
+    .community-audience-text {
+        order: 2; /* Текст о целевой аудитории вторым */
+    }
+    
+    .community-geo-chart {
+        order: 3; /* График гео третьим */
+    }
+    
+    .community-geo-text {
+        order: 4; /* Текст о гео четвертым */
     }
     
     .chart-bars {
@@ -808,7 +892,7 @@ section {
         font-size: 0.8rem;
     }
     
-    .statistics-header {
+    .statistics-wrapper {
         gap: 1.5rem;
     }
     
@@ -816,11 +900,22 @@ section {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        justify-content: center;
+        max-width: 400px;
+    }
+    
+    .period-toggle {
+        order: 1; /* Переключатель дат сверху */
+    }
+    
+    .source-toggle {
+        order: 2; /* Переключатель каналов снизу */
     }
     
     .source-toggle,
     .period-toggle {
-        width: 100%;
+        flex: 0 0 auto;
+        min-width: 200px;
         justify-content: center;
     }
     
@@ -831,7 +926,29 @@ section {
     }
     
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        text-align: center;
     }
     
     .contact-info {
@@ -901,7 +1018,11 @@ section {
     }
     
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
     }
     
     .chart-bars {
@@ -920,5 +1041,77 @@ section {
     
     .bar-value {
         font-size: 0.8rem;
+    }
+    
+    /* Дополнительные улучшения для очень маленьких экранов */
+    .statistics-toggles {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .period-toggle {
+        order: 1; /* Переключатель дат сверху */
+    }
+    
+    .source-toggle {
+        order: 2; /* Переключатель каналов снизу */
+    }
+    
+    .source-toggle,
+    .period-toggle {
+        min-width: 140px;
+        width: 100%;
+    }
+    
+    .toggle-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .stat-card {
+        padding: 1.2rem;
+        min-height: 100px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+}
+
+/* Дополнительный медиа-запрос для очень широких экранов */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* Медиа-запрос для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .overview-content {
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+    }
+    
+    .community-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 }
