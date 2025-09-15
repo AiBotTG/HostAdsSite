@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxMedia - Реклама</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="#hero" class="logo logo-link">
-                    <img src="images/logo.png" alt="Max Media" class="logo-img">
+                    <img src="./images/logo.png" alt="Max Media" class="logo-img">
                     <span class="logo-text">Max Media</span>
                 </a>
                 <nav class="nav">
@@ -109,8 +109,9 @@
     <!-- Community Section -->
     <section id="community" class="community">
         <div class="container">
-            <div class="community-content">
-                <div class="community-left">
+            <div class="community-wrapper">
+                <!-- График возрастов -->
+                <div class="community-block community-age-chart">
                     <div class="chart-container">
                         <div class="bar-chart">
                             <div class="chart-bars">
@@ -134,7 +135,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="community-right">
+                
+                <!-- Текст о целевой аудитории -->
+                <div class="community-block community-audience-text">
                     <h2 class="section-title">Целевая аудитория</h2>
                     <p class="community-note">Данные из YouTube аналитики, отличаются от реальных.</p>
                     <div class="expandable-text">
@@ -149,22 +152,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="geography-section">
-                <div class="geography-left">
-                    <h2 class="section-title">Географическое распределение</h2>
-                    <div class="expandable-text">
-                        <h3 class="expandable-title" onclick="toggleExpandable(this)">
-                            Методы подсчетов
-                            <span class="toggle-icon">+</span>
-                        </h3>
-                        <div class="expandable-content">
-                            <p>За основу взяты данные из YouTube аналитики, но из-за повсеместного использования методов ускорения YouTube (vpn) данные в ютуб аналитике значительно искажаются. Поскольку контент русскоязычный - большая часть аудитории проживает в странах снг. Для повышения репрезентативности данных к колонке "Россия" прибавлены колонки других стран (не относящихся к снг региону)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="geography-right">
+                
+                <!-- График гео -->
+                <div class="community-block community-geo-chart">
                     <div class="bar-chart">
                         <div class="chart-bars">
                             <div class="bar" style="height: 87.1%">
@@ -186,6 +176,20 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Текст о гео -->
+                <div class="community-block community-geo-text">
+                    <h2 class="section-title">Географическое распределение</h2>
+                    <div class="expandable-text">
+                        <h3 class="expandable-title" onclick="toggleExpandable(this)">
+                            Методы подсчетов
+                            <span class="toggle-icon">+</span>
+                        </h3>
+                        <div class="expandable-content">
+                            <p>За основу взяты данные из YouTube аналитики, но из-за повсеместного использования методов ускорения YouTube (vpn) данные в ютуб аналитике значительно искажаются. Поскольку контент русскоязычный - большая часть аудитории проживает в странах снг. Для повышения репрезентативности данных к колонке "Россия" прибавлены колонки других стран (не относящихся к снг региону)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -193,8 +197,8 @@
     <!-- Statistics Section -->
     <section id="statistics" class="statistics">
         <div class="container">
-            <div class="statistics-header">
-                <h2 class="section-title">Статистика</h2>
+            <div class="statistics-wrapper">
+                <h2 class="section-title statistics-title">Статистика</h2>
                 <div class="statistics-toggles">
                     <div class="source-toggle">
                         <button class="toggle-btn active" data-source="together" data-index="0">Вместе</button>
@@ -206,36 +210,35 @@
                         <button class="toggle-btn" data-period="90" data-index="1">90 дней</button>
                     </div>
                 </div>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" 
-                         data-together-28="2,2 млн" data-together-90="7,1 млн"
-                         data-penal-28="1,5 млн" data-penal-90="4,8 млн"
-                         data-maxmedia-28="0,7 млн" data-maxmedia-90="2,3 млн">2,2 млн</div>
-                    <div class="stat-label">просмотры</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" 
-                         data-together-28="14мин26сек" data-together-90="14мин4сек"
-                         data-penal-28="18мин18сек" data-penal-90="17мин26сек"
-                         data-maxmedia-28="10мин34сек" data-maxmedia-90="10мин42сек">14мин26сек</div>
-                    <div class="stat-label">Продолжительность просмотра</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" 
-                         data-together-28="75" data-together-90="226"
-                         data-penal-28="33" data-penal-90="100"
-                         data-maxmedia-28="42" data-maxmedia-90="126">75</div>
-                    <div class="stat-label">среднее кол-во роликов</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" 
-                         data-together-28="38 тыс" data-together-90="59 тыс"
-                         data-penal-28="21 тыс" data-penal-90="37 тыс"
-                         data-maxmedia-28="17 тыс" data-maxmedia-90="21 тыс">38 тыс</div>
-                    <div class="stat-label">Средние просмотры на ролик</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" 
+                             data-together-28="2,2 млн" data-together-90="7,1 млн"
+                             data-penal-28="1,5 млн" data-penal-90="4,8 млн"
+                             data-maxmedia-28="0,7 млн" data-maxmedia-90="2,3 млн">2,2 млн</div>
+                        <div class="stat-label">просмотры</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" 
+                             data-together-28="14мин26сек" data-together-90="14мин4сек"
+                             data-penal-28="18мин18сек" data-penal-90="17мин26сек"
+                             data-maxmedia-28="10мин34сек" data-maxmedia-90="10мин42сек">14мин26сек</div>
+                        <div class="stat-label">Продолжительность просмотра</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" 
+                             data-together-28="75" data-together-90="226"
+                             data-penal-28="33" data-penal-90="100"
+                             data-maxmedia-28="42" data-maxmedia-90="126">75</div>
+                        <div class="stat-label">среднее кол-во роликов</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" 
+                             data-together-28="38 тыс" data-together-90="59 тыс"
+                             data-penal-28="21 тыс" data-penal-90="37 тыс"
+                             data-maxmedia-28="17 тыс" data-maxmedia-90="21 тыс">38 тыс</div>
+                        <div class="stat-label">Средние просмотры на ролик</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -266,6 +269,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
