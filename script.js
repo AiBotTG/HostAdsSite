@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             updateToggleIndicator('source');
             updateToggleIndicator('period');
+            fixStatCardWidths(); // Пересчитываем размеры карточек при изменении размера
         }, 100);
     });
 
