@@ -8,9 +8,79 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Smooth scrolling for navigation
     const navLinks = document.querySelectorAll('.nav-link, .cta-button, .logo-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const navIndicator = document.querySelector('.nav-indicator');
     
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close mobile menu when clicking on a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Add click handlers for desktop nav links
     navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    isScrolling = true;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000);
+                }
+            }
+        });
+    });
+    
+    // Add click handlers for mobile nav links
+    mobileNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href.startsWith('#')) {
@@ -38,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateActiveSection() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
         const navIndicator = document.querySelector('.nav-indicator');
         const logo = document.querySelector('.logo');
         
@@ -58,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Update active nav link
+        // Update active nav link (desktop)
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('data-section') === currentSection) {
@@ -75,15 +146,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+        // Update active mobile nav link
+        mobileNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === currentSection) {
+                link.classList.add('active');
+            }
+        });
+        
         // If we're in hero section, show indicator under logo text only
         if (currentSection === 'hero') {
             const logoText = document.querySelector('.logo-text');
-            const navRect = navLinks[0].parentElement.getBoundingClientRect();
-            const textRect = logoText.getBoundingClientRect();
-            const indicatorLeft = textRect.left - navRect.left;
-            const indicatorWidth = textRect.width;
-            navIndicator.style.left = indicatorLeft + 'px';
-            navIndicator.style.width = indicatorWidth + 'px';
+            if (logoText && window.innerWidth > 768) {
+                const navRect = navLinks[0].parentElement.getBoundingClientRect();
+                const textRect = logoText.getBoundingClientRect();
+                const indicatorLeft = textRect.left - navRect.left;
+                const indicatorWidth = textRect.width;
+                navIndicator.style.left = indicatorLeft + 'px';
+                navIndicator.style.width = indicatorWidth + 'px';
+            }
         }
     }
     
