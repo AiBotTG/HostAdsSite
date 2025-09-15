@@ -391,10 +391,12 @@ section {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    opacity: 0;
 }
 
 .feature-item.active .feature-content {
-    max-height: 200px;
+    max-height: 300px;
+    opacity: 1;
 }
 
 .feature-content p {
@@ -485,12 +487,14 @@ section {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    opacity: 0;
 }
 
 .expandable-text.active .expandable-content {
     /* allow internal scroll without growing the layout */
-    max-height: 220px;
+    max-height: 300px;
     overflow: auto;
+    opacity: 1;
 }
 
 /* Hide scrollbar while keeping scroll functionality */
@@ -617,6 +621,8 @@ section {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
 }
 
 .toggle-btn.active {
@@ -816,6 +822,7 @@ section {
     cursor: pointer;
     padding: 0;
     z-index: 1001;
+    position: relative;
 }
 
 .hamburger-line {
@@ -855,10 +862,12 @@ section {
     gap: 2rem;
     transition: right 0.3s ease;
     z-index: 1000;
+    pointer-events: none;
 }
 
 .mobile-menu.active {
     right: 0;
+    pointer-events: auto;
 }
 
 .mobile-nav-link {
